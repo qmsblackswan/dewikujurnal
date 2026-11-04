@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dewiku Akademia</title>
+<style>
+:root{--hitam:#000;--arang:#15130c;--emas:#e6c229;--emas2:#f7e27a;--teks:#f5f0dc;--redup:#b3a984}
+*{box-sizing:border-box}
+body{margin:0;background:var(--hitam);color:var(--teks);font:17px/1.65 Georgia,"Times New Roman",serif}
+[hidden]{display:none!important}
+.wrap{max-width:960px;margin:auto;padding:0 20px}
+.hero{text-align:center;padding:48px 20px 40px;border-bottom:1px solid #3a321a}
+.hero img{width:min(240px,60vw);height:auto}
+h1,h2,h3{font-weight:400;margin:0 0 10px;color:var(--emas)}
+h1{font-size:clamp(2rem,6vw,3.2rem);letter-spacing:.02em}
+h2{font-size:1.7rem}
+p{margin:0 0 12px;max-width:70ch}
+.sub{color:var(--redup);margin:6px auto 0}
+section{padding:40px 0;border-bottom:1px solid #2a2412}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+.kartu{background:var(--arang);border-left:3px solid var(--emas);padding:16px 18px}
+.harga{color:var(--emas2);font-weight:700}
+form{display:grid;gap:10px;max-width:520px}
+input,select,textarea,button,.tombol{font:inherit;width:100%;padding:11px 12px;border:1px solid #5a4d1c;background:#0c0b07;color:var(--teks);border-radius:2px}
+input:focus,select:focus,button:focus,.tombol:focus{outline:2px solid var(--emas);outline-offset:2px}
+button,.tombol{background:linear-gradient(90deg,var(--emas),var(--emas2));color:#000;font-weight:700;border:0;cursor:pointer;text-align:center;text-decoration:none;display:block}
+.cek{display:flex;gap:10px;align-items:flex-start;font-size:.95rem;color:var(--redup)}
+.cek input{width:auto;margin-top:6px}
+.jebakan{position:absolute;left:-9999px}
+.info{color:var(--emas2);min-height:1.5em}
+footer{padding:28px 20px;text-align:center;color:var(--redup);font-size:.9rem}
+</style>
+</head>
+<body>
+<header class="hero">
+  <img src="logo.png" alt="Logo Dewiku Research and Education" onerror="this.hidden=true">
+  <h1>Dewiku Akademia</h1>
+  <p class="sub">Penelitian dan pendidikan, dengan harga yang bisa dibicarakan.</p>
+</header>
+
+<main class="wrap">
+  <section id="layanan">
+    <h2>Layanan</h2>
+    <div class="grid" id="katalog"><p class="sub">Memuat layanan...</p></div>
+  </section>
+
+  <section id="nego">
+    <h2>Ajukan negosiasi harga</h2>
+    <p>Isi form ini. Tim kami akan menghubungi Anda lewat WhatsApp.</p>
+    <form id="fnego">
+      <input name="nama" placeholder="Nama lengkap" required maxlength="80" autocomplete="name">
+      <input name="wa" placeholder="Nomor WhatsApp, contoh 0812xxxxxxx" required inputmode="tel" autocomplete="tel">
+      <select name="layanan" id="pilih" required><option value="">Pilih layanan</option></select>
+      <input name="tawaran" placeholder="Harga yang Anda tawarkan (Rp)" required maxlength="40">
+      <input class="jebakan" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <label class="cek"><input type="checkbox" name="setuju" required>Saya setuju nomor WhatsApp dan data ini disimpan untuk keperluan negosiasi.</label>
+      <button type="submit">Kirim pengajuan</button>
+    </form>
+    <p class="info" id="pesan" role="status"></p>
+    <a class="tombol" id="lanjut" href="#" target="_blank" rel="noopener" hidden>Lanjut lewat WhatsApp</a>
+  </section>
+
+  <section id="masuk">
+    <h2>Masuk untuk admin dan mitra</h2>
+    <p>Gunakan akun Google yang sudah didaftarkan.</p>
+    <div id="gbtn"></div>
+    <p class="info" id="status" role="status"></p>
+    <div id="panel" hidden>
+      <h3>Unggah dokumen</h3>
+      <form id="unggah">
+        <input type="file" name="berkas" accept=".pdf,.jpg,.jpeg,.png" required>
+        <input name="catatan" placeholder="Catatan singkat (opsional)" maxlength="200">
+        <button type="submit">Unggah dokumen</button>
+      </form>
+      <p class="info" id="st2" role="status"></p>
+      <p class="sub">Admin: ubah layanan, harga, dan verifikasi mitra langsung di Google Sheets.</p>
+    </div>
+  </section>
+</main>
+<footer>Dewiku Research and Education</footer>
+
+<script>
+// ISI 4 NILAI INI SESUAI PANDUAN (README.md)
+var CFG = {
+  SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwy0WU541_lx0PuGiT98D3DvEW1VrDDuDuSqQtKYTOJ7gu5MjN9TkWOkGtFLAF7n554MQ/exec',
+  CLIENT_ID: '81000160028-1h6c93hl09aao2tiddoje95se9gcrbe2.apps.googleusercontent.com',
+  CSV_URL: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTUEy4Z6tmupxihmycaL8B0GAKBPMFHZiu_Ptt89j44bNnEEt2UAlrMlxdiTG190LmPbxhb7kQ7pjMi/pub?gid=0&single=true&output=csv',
+  WA_ADMIN: '62895706960209'
+};
+var $ = function (i) { return document.getElementById(i); }, token = null;
+
+function el(tag, teks, cls) { var e = document.createElement(tag); e.textContent = teks; if (cls) e.className = cls; return e; }
+
+function kirim(o) {
+  return fetch(CFG.SCRIPT_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain' }, body: JSON.stringify(o) })
+    .then(function (r) { return r.json(); })
+    .catch(function () { return { ok: false, pesan: 'Tidak dapat terhubung. Periksa koneksi internet Anda.' }; });
+}
+
+function csv(t) {
+  var r = [], row = [], c = '', q = false;
+  for (var i = 0; i < t.length; i++) {
+    var ch = t[i];
+    if (q) { if (ch === '"' && t[i + 1] === '"') { c += '"'; i++; } else if (ch === '"') q = false; else c += ch; }
+    else if (ch === '"') q = true;
+    else if (ch === ',') { row.push(c); c = ''; }
+    else if (ch === '\n') { row.push(c); r.push(row); row = []; c = ''; }
+    else if (ch !== '\r') c += ch;
+  }
+  if (c || row.length) { row.push(c); r.push(row); }
+  return r;
+}
+
+// Kolom sheet layanan: kategori | layanan | harga | deskripsi
+fetch(CFG.CSV_URL).then(function (r) { return r.text(); }).then(function (t) {
+  var k = $('katalog'); k.textContent = '';
+  csv(t).slice(1).forEach(function (r) {
+    if (!r[1]) return;
+    var d = el('div', '', 'kartu');
+    d.appendChild(el('p', r[0], 'sub')); d.appendChild(el('h3', r[1])); d.appendChild(el('p', r[3] || ''));
+    d.appendChild(el('p', r[2], 'harga')); k.appendChild(d);
+    var o = el('option', r[1]); o.value = r[1]; $('pilih').appendChild(o);
+  });
+  if (!k.children.length) k.appendChild(el('p', 'Layanan belum tersedia.', 'sub'));
+}).catch(function () { $('katalog').textContent = 'Layanan belum dapat dimuat. Coba muat ulang halaman.'; });
+
+$('fnego').onsubmit = function (e) {
+  e.preventDefault(); var f = e.target;
+  kirim({ aksi: 'nego', nama: f.nama.value, wa: f.wa.value, layanan: f.layanan.value, tawaran: f.tawaran.value, setuju: f.setuju.checked, website: f.website.value })
+    .then(function (r) {
+      $('pesan').textContent = r.ok ? 'Pengajuan terkirim. Silakan lanjut lewat WhatsApp.' : r.pesan;
+      if (r.ok) {
+        var l = $('lanjut');
+        l.href = 'https://wa.me/' + CFG.WA_ADMIN + '?text=' + encodeURIComponent('Halo, saya ' + f.nama.value + ', ingin negosiasi layanan ' + f.layanan.value + ' dengan tawaran ' + f.tawaran.value);
+        l.hidden = false;
+      }
+    });
+};
+
+$('unggah').onsubmit = function (e) {
+  e.preventDefault(); var f = e.target, fl = f.berkas.files[0];
+  if (!fl) return;
+  if (fl.size > 5e6) { $('st2').textContent = 'File lebih dari 5 MB.'; return; }
+  var rd = new FileReader();
+  rd.onload = function () {
+    kirim({ aksi: 'upload', token: token, catatan: f.catatan.value, file: { name: fl.name, type: fl.type, data: String(rd.result).split(',')[1] } })
+      .then(function (r) { $('st2').textContent = r.pesan; });
+  };
+  rd.readAsDataURL(fl);
+};
+
+function initG() {
+  google.accounts.id.initialize({
+    client_id: CFG.CLIENT_ID,
+    callback: function (x) {
+      token = x.credential;
+      kirim({ aksi: 'masuk', token: token }).then(function (r) {
+        $('panel').hidden = !r.ok;
+        $('status').textContent = r.ok ? 'Masuk sebagai ' + r.nama + ' (' + r.role + ').' : r.pesan;
+      });
+    }
+  });
+  google.accounts.id.renderButton($('gbtn'), { theme: 'filled_black', size: 'large', text: 'signin_with' });
+}
+</script>
+<script src="https://accounts.google.com/gsi/client" async defer onload="initG()"></script>
+</body>
+</html>
