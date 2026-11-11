@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kursus Komputer | Dewiku Akademia</title>
+<meta name="description" content="Kursus komputer untuk pemula: teori singkat dan praktik, sertifikat resmi Dewiku Akademia.">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--pri:#12264A;--onp:#fff;--gold:#E0A526;--bg:#EEF3FB;--card:#fff;--tint:#E1EAFF;--ink:#1B2438;--mute:#5B667A;--line:#DCE1EB;--ok:#1F8A5B;--bad:#B42318;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--pri:#E0A526;--onp:#12264A;--bg:#0D1526;--card:#15203A;--tint:#1F2F5E;--ink:#E7EBF4;--mute:#9AA6BD;--line:#26334F;--ok:#4CC38A;--bad:#F97066;color-scheme:dark}}
+:root[data-theme="dark"]{--pri:#E0A526;--onp:#12264A;--bg:#0D1526;--card:#15203A;--tint:#1F2F5E;--ink:#E7EBF4;--mute:#9AA6BD;--line:#26334F;--ok:#4CC38A;--bad:#F97066;color-scheme:dark}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 80px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 'Plus Jakarta Sans',system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0 0 .5em}
+h1{font-size:clamp(30px,5vw,46px)}h2{font-size:clamp(25px,3.5vw,34px)}h3{font-size:20px}
+.wrap{max-width:1080px;margin:auto;padding:0 20px}
+section{padding:56px 0}.mu{color:var(--mute)}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--card);border-bottom:3px solid;border-image:linear-gradient(90deg,#1D4ED8,#7C3AED,#F97316) 1;z-index:9}
+.hd{display:flex;align-items:center;gap:12px;padding-top:8px;padding-bottom:8px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:none}
+.brand img{width:48px;height:48px;border-radius:50%;background:#fff;box-shadow:0 2px 10px rgba(20,30,90,.3);transition:transform .7s cubic-bezier(.2,.8,.2,1)}.brand:hover img{transform:rotate(360deg)}
+.bt{font:700 19px/1 Fraunces,Georgia,serif}.bt small{display:block;font:500 11px 'Plus Jakarta Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:3px}
+nav{display:flex;gap:4px;align-items:center;overflow-x:auto;white-space:nowrap;margin-left:auto}
+.lk{background:none;border:0;color:var(--ink);font:inherit;font-size:15px;padding:8px 10px;cursor:pointer;border-radius:8px;text-decoration:none;transition:transform .2s,background .2s,color .2s}.lk:hover{transform:translateY(-2px);color:#fff;background:linear-gradient(135deg,#1D4ED8,#6D28D9)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;box-sizing:border-box;text-decoration:none;text-align:center;background:linear-gradient(135deg,#1D4ED8,#6D28D9);color:#fff;border:1px solid transparent;border-radius:10px;padding:10px 20px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s}.btn:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(67,56,202,.35)}.btn:active{transform:scale(.96)}
+.btn.g{background:linear-gradient(135deg,#FBBF24,#F97316);color:#1B1200}.btn.o{background:transparent;color:var(--ink);border-color:var(--line)}.btn.s{min-height:40px;padding:6px 14px;font-size:15px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero{background:linear-gradient(120deg,#0B1F4D,#1D4ED8 55%,#6D28D9);color:#fff;padding:56px 0}
+.hero p{color:#D3DCEE;max-width:54ch}.hero .btn.o{color:#fff;border-color:#9FB4F0}
+.chip{display:inline-block;padding:4px 14px;border-radius:99px;border:1px solid #3A5588;font-size:15px;margin:0 6px 8px 0}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.card{background:linear-gradient(145deg,var(--card),var(--tint));border:1px solid var(--line);border-radius:14px;padding:22px;transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(30,50,120,.15)}
+.step b{display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--pri);color:var(--onp);font:700 18px Fraunces,serif;margin-bottom:10px}
+.price{font:700 34px Fraunces,Georgia,serif}.old{text-decoration:line-through;color:var(--mute);font-size:18px;margin-right:8px}
+.pkg ul{padding-left:20px;margin:12px 0 18px}.pkg li{margin:4px 0}
+.tag{display:inline-block;font-size:13px;font-weight:700;background:var(--gold);color:#1B1200;border-radius:99px;padding:2px 12px;margin-bottom:8px}
+input{width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;margin:6px 0 12px}
+label{font-size:15px;font-weight:700;display:block}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end}.row>div{flex:1 1 220px}.row .btn{margin-bottom:12px}
+.res{margin-top:14px;border-radius:12px;padding:16px;border:1px solid var(--line);background:var(--card)}.res.ok{border-color:var(--ok)}.res.no{border-color:var(--bad)}
+.res img,.res iframe{width:100%;max-height:420px;object-fit:contain;border:1px solid var(--line);border-radius:10px;margin-top:12px;background:#fff}.res iframe{height:420px}
+.st-ok{color:var(--ok);font-weight:700}.st-no{color:var(--bad);font-weight:700}
+.promo{background:linear-gradient(120deg,#FBBF24,#F97316);color:#12264A;border-radius:16px;padding:24px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:18px}.promo p{margin:0;max-width:60ch}.promo .btn{background:#12264A;color:#fff}
+.gal{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+.gi{padding:0;border:0;background:var(--card);border-radius:12px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:var(--ink);border:1px solid var(--line);transition:transform .35s,box-shadow .35s}.gi:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(30,50,120,.18)}
+.gi img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}.gi span{display:block;padding:10px 12px;font-size:14px}
+dialog{max-width:min(92vw,900px);width:100%;border:0;border-radius:14px;padding:16px;background:var(--card);color:var(--ink)}dialog::backdrop{background:rgba(5,10,25,.7)}dialog img{width:100%;max-height:72vh;object-fit:contain}
+#ref{display:none;margin-top:14px}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(env(safe-area-inset-bottom,0px) + 20px);background:var(--pri);color:var(--onp);padding:10px 18px;border-radius:10px;z-index:20;max-width:90%}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--mute);font-size:14px}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s cubic-bezier(.2,.8,.2,1)}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+</style></head><body>
+<header><div class="wrap hd">
+<a class="brand" href="index.html" aria-label="Ke website utama Dewiku Akademia"><img src="logo.png" alt="Logo Dewiku Research and Education"><span class="bt">Dewiku<small>Akademia</small></span></a>
+<nav aria-label="Menu utama">
+<a class="lk" href="#" id="dash">Dashboard</a><a class="lk" href="#paket">Layanan</a><a class="lk" href="#kontak">Kontak</a>
+<a class="btn g s" id="daftarTop" target="_blank" rel="noopener">Form Pendaftaran</a></nav></div></header>
+
+<main>
+<div class="hero"><div class="wrap">
+<h1>Belajar komputer dari nol, pelan-pelan, sampai bisa.</h1>
+<p>Kursus komputer Dewiku Akademia dirancang untuk pemula, termasuk orang tua. Setiap pertemuan ada teori singkat, lalu langsung praktik.</p>
+<div style="margin:18px 0"><span class="chip">3 kali pertemuan per minggu</span><span class="chip">2 jam per pertemuan</span><span class="chip">12 pertemuan per bulan</span></div>
+<div class="cta"><a class="btn g" id="daftarHero" target="_blank" rel="noopener">Daftar Sekarang</a><a class="btn o" href="#sertifikat">Cek Sertifikat</a></div>
+<div id="ref" class="chip" style="font-size:15px"></div>
+</div></div>
+
+<section><div class="wrap rv"><h2>Cara belajarnya mudah</h2>
+<div class="grid">
+<div class="card step"><b>1</b><h3>Daftar</h3><p class="mu" style="margin:0">Isi formulir pendaftaran, lalu admin menghubungi lewat WhatsApp.</p></div>
+<div class="card step"><b>2</b><h3>Belajar dan praktik</h3><p class="mu" style="margin:0">Teori singkat dulu, setelah itu langsung mencoba sendiri di komputer.</p></div>
+<div class="card step"><b>3</b><h3>Dapat sertifikat</h3><p class="mu" style="margin:0">Setelah selesai, Anda menerima sertifikat yang bisa dicek keasliannya di halaman ini.</p></div>
+</div></div></section>
+
+<section id="paket" style="background:var(--card)"><div class="wrap rv"><h2>Paket dan biaya</h2>
+<p class="mu">Harga per bulan untuk satu siswa.</p>
+<div class="grid" id="pk"></div>
+<div class="card" style="margin-top:16px"><h3>Alumni Dewiku: diskon 50%</h3>
+<p class="mu" style="margin-top:0">Pernah ikut kursus kami dan ingin melanjutkan? Masukkan nomor sertifikat lama Anda. Jika valid, harga di atas otomatis menjadi setengahnya.</p>
+<div class="row"><div><label for="nAl">Nomor sertifikat lama</label><input id="nAl" autocomplete="off" placeholder="Contoh: DWK-2611-A7K3Q"></div><button class="btn" id="bAl">Cek diskon alumni</button></div>
+<div id="rAl" role="status"></div></div>
+<div class="promo"><p><b>Punya kenalan yang ingin belajar komputer?</b> Mitra Dewiku mendapat komisi 10% untuk setiap siswa baru yang mendaftar lewat rekomendasinya (satu kali per siswa).</p><a class="btn" href="index.html">Jadi mitra</a></div>
+</div></section>
+
+<section id="sertifikat"><div class="wrap rv"><h2>Cek keaslian sertifikat</h2>
+<p class="mu">Masukkan nomor yang tertera di kanan atas sertifikat. Anda bisa melihat dan mengunduh sertifikatnya di sini.</p>
+<div class="card"><div class="row"><div><label for="nSr">Nomor sertifikat</label><input id="nSr" autocomplete="off" placeholder="Contoh: DWK-2611-A7K3Q"></div><button class="btn" id="bSr">Cek sertifikat</button></div>
+<div id="rSr" role="status"></div></div></div></section>
+
+<section id="galeri" style="background:var(--card)"><div class="wrap rv"><h2>Galeri kegiatan</h2>
+<p class="mu" id="gMsg">Memuat galeri…</p><div class="gal" id="gal"></div></div></section>
+
+<section id="kontak"><div class="wrap rv"><h2>Kontak</h2>
+<div class="card" style="max-width:560px"><p style="margin-top:0">Ada pertanyaan? Tanyakan dulu lewat WhatsApp, kami bantu dengan senang hati.</p>
+<div class="cta"><a class="btn g" href="https://wa.me/62895706960209" target="_blank" rel="noopener">WhatsApp Admin</a><a class="btn o" href="https://instagram.com/DQAkademia" target="_blank" rel="noopener">Instagram @DQAkademia</a></div></div></div></section>
+</main>
+<footer><div class="wrap">© 2026 Dewiku Akademia. Learn • Practice • Be Professional.</div></footer>
+<dialog id="dlg"><img id="dimg" alt=""><p id="dcap" class="mu"></p><button class="btn s" onclick="dlg.close()">Tutup</button></dialog>
+<div id="toast" role="status" hidden></div>
+
+<script src="config.js"></script>
+<script>
+const API=(window.DEWIKU_CONFIG||{}).API||'';
+const FORM='https://forms.gle/JgtrffjTRuYg6aBt5';
+// Ubah paket di sini. Jadwal paket lanjutan sama dengan paket dasar; isi "materi" bila materinya berbeda.
+const SCHED=['3 kali pertemuan per minggu','2 jam per pertemuan','Total 12 pertemuan atau 24 jam per bulan','Setiap pertemuan: teori singkat dan praktik'];
+const PAKET=[{n:'Paket Dasar',p:400000,t:'Untuk pemula',l:SCHED},{n:'Paket Tingkat Lanjut',p:600000,t:'Untuk yang sudah paham dasar',l:SCHED}];
+const $=id=>document.getElementById(id),E=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const rp=n=>'Rp'+n.toLocaleString('id-ID');
+let alumni=false;
+const T=m=>{const t=$('toast');t.textContent=m;t.hidden=false;clearTimeout(T.i);T.i=setTimeout(()=>t.hidden=true,3200)};
+const api=async q=>{if(!API)throw 0;const r=await fetch(API+'?'+new URLSearchParams(q));return r.json()};
+['daftarTop','daftarHero'].forEach(i=>$(i).href=FORM);
+$('dash').onclick=e=>{e.preventDefault();T('Dashboard kursus dibuka pada tahap berikutnya.')};
+// Kode mitra dari tautan ?ref=MTR-001
+try{const r=new URLSearchParams(location.search).get('ref');if(r&&/^MTR-\d{3,6}$/.test(r)){sessionStorage.setItem('dwk_ref',r)}}catch(e){}
+try{const r=sessionStorage.getItem('dwk_ref');if(r){const b=$('ref');b.style.display='inline-block';b.innerHTML='Kode mitra <b>'+E(r)+'</b> tercatat. Tuliskan kode ini di formulir pendaftaran.'}}catch(e){}
+function paket(){$('pk').innerHTML=PAKET.map(k=>`<div class="card pkg"><span class="tag">${E(k.t)}</span><h3>${E(k.n)}</h3><div>${alumni?`<span class="old">${rp(k.p)}</span>`:''}<span class="price">${rp(alumni?k.p/2:k.p)}</span> <span class="mu">/ bulan</span></div><ul>${k.l.map(x=>`<li>${E(x)}</li>`).join('')}</ul><a class="btn g" href="${FORM}" target="_blank" rel="noopener">Daftar paket ini</a></div>`).join('')}
+paket();
+const norm=v=>v.trim().toUpperCase().replace(/\s+/g,'');
+async function cari(no,ringkas){if(!/^[A-Z0-9\-]{6,40}$/.test(no))return{ok:false,pesan:'Nomor sertifikat tidak valid. Periksa lagi penulisannya.'};
+try{return await api({a:'sertifikat',no,ringkas:ringkas?1:''})}catch(e){return{ok:false,pesan:'Layanan belum tersambung. Coba lagi nanti atau hubungi admin.'}}}
+$('bAl').onclick=async()=>{const b=$('bAl'),no=norm($('nAl').value);b.disabled=true;const r=await cari(no,1);b.disabled=false;alumni=!!r.ok;paket();
+$('rAl').innerHTML=r.ok?`<div class="res ok"><span class="st-ok">Alumni terverifikasi</span><p style="margin:6px 0 0">Halo ${E(r.data.nama)}. Diskon 50% sudah berlaku. Tuliskan nomor <b>${E(no)}</b> di formulir pendaftaran.</p></div>`:`<div class="res no"><span class="st-no">${E(r.pesan||'Nomor tidak ditemukan.')}</span></div>`};
+const blobUrl=(b,m)=>{const a=atob(b),u=new Uint8Array(a.length);for(let i=0;i<a.length;i++)u[i]=a.charCodeAt(i);return URL.createObjectURL(new Blob([u],{type:m}))};
+$('bSr').onclick=async()=>{const b=$('bSr'),o=$('rSr'),no=norm($('nSr').value);b.disabled=true;o.innerHTML='<p class="mu">Memeriksa…</p>';const r=await cari(no,0);b.disabled=false;
+if(!r.ok){o.innerHTML=`<div class="res no"><span class="st-no">${E(r.pesan||'Sertifikat tidak ditemukan.')}</span></div>`;return}
+const d=r.data,u=d.b64?blobUrl(d.b64,d.mime):'',img=/^image\//.test(d.mime||''),ext=img?(d.mime.split('/')[1]||'png'):'pdf';
+o.innerHTML=`<div class="res ok"><span class="st-ok">Sertifikat asli dan terdaftar</span><p style="margin:8px 0">Nama: <b>${E(d.nama)}</b><br>Program: ${E(d.program)}<br>Tanggal terbit: ${E(d.tanggal)}<br>Hasil: <b>${E(d.lulus)}</b></p>${u?`<div class="cta"><a class="btn s" href="${u}" target="_blank" rel="noopener">Lihat</a><a class="btn g s" href="${u}" download="Sertifikat-${E(no)}.${ext}">Unduh</a></div>${img?`<img src="${u}" alt="Sertifikat ${E(d.nama)}">`:''}`:'<p class="mu">Berkas sertifikat belum tersedia. Hubungi admin.</p>'}</div>`};
+[['nAl','bAl'],['nSr','bSr']].forEach(([i,b])=>$(i).addEventListener('keydown',e=>{if(e.key==='Enter')$(b).click()}));
+(async()=>{const m=$('gMsg');try{const r=await api({a:'galeri'});if(!r.ok||!r.data.length){m.textContent='Galeri segera hadir.';return}m.hidden=true;
+$('gal').innerHTML=r.data.map((g,i)=>`<button class="gi" data-i="${i}"><img src="${E(g.t)}" alt="${E(g.j)}" loading="lazy"><span>${E(g.j)}</span></button>`).join('');
+$('gal').onclick=async e=>{const b=e.target.closest('.gi');if(!b)return;const g=r.data[b.dataset.i];$('dimg').src=g.t;$('dimg').alt=g.j;$('dcap').textContent=g.k||g.j;dlg.showModal();
+try{const f=await api({a:'foto',id:g.id});if(f.ok&&dlg.open)$('dimg').src='data:'+f.mime+';base64,'+f.b64}catch(x){}}}catch(e){m.textContent='Galeri segera hadir.'}})();
+const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}}),{threshold:.1});document.querySelectorAll('.rv').forEach(x=>io.observe(x));
+</script></body></html>
